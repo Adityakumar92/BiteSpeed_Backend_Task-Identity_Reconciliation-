@@ -27,7 +27,7 @@ The API is **hosted on Render** and can be accessed at:
 ## 📌 How to Test the API in Postman
 
 1. Open **Postman**.
-2. Select **GET** method.
+2. Select **POST** method.
 3. Paste the hosted API URL:  
    ```
    https://bitespeed-backend-task-identity-e4hd.onrender.com/identify
