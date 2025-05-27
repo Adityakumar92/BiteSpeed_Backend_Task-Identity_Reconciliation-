@@ -12,9 +12,9 @@ CREATE TABLE IF NOT EXISTS Contacts (
     email VARCHAR(255),
     linkedId INT,
     linkPrecedence ENUM('secondary', 'primary') DEFAULT 'primary',
-    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updatedAt DATETIME NULL,
-    deletedAt TIMESTAMP NULL
+    createdAt DATETIME NOT NULL,
+    updatedAt DATETIME,
+    deletedAt DATETIME
 );
 `;
 

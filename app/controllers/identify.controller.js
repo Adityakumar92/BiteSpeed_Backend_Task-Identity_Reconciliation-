@@ -25,8 +25,9 @@ const identify = async (req, res, next) => {
                 email VARCHAR(255),
                 linkedId INT,
                 linkPrecedence ENUM('primary', 'secondary') DEFAULT 'primary',
-                createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-                updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+                createdAt DATETIME NOT NULL,
+                updatedAt DATETIME,
+                deletedAt DATETIME
             )
         `);
 
@@ -118,16 +119,16 @@ const identify = async (req, res, next) => {
 
             if (shouldInsert) {
                 const [insertResult] = await db.execute(
-                    `INSERT INTO Contacts (phoneNumber, email, linkedId, linkPrecedence) VALUES (?, ?, ?, ?)`,
-                    [newContact.phoneNumber, newContact.email, newContact.linkedId, newContact.linkPrecedence]
+                    `INSERT INTO Contacts (phoneNumber, email, linkedId, linkPrecedence, createdAt) VALUES (?, ?, ?, ?, ?)`,
+                    [newContact.phoneNumber, newContact.email, newContact.linkedId, newContact.linkPrecedence, new Date()]
                 );
                 output.secondaryContactIds.push(insertResult.insertId);
             }
         } else {
             // Insert brand new primary contact
             const [insertResult] = await db.execute(
-                `INSERT INTO Contacts (phoneNumber, email, linkPrecedence) VALUES (?, ?, ?)`,
-                [newContact.phoneNumber, newContact.email, newContact.linkPrecedence]
+                `INSERT INTO Contacts (phoneNumber, email, linkPrecedence, createdAt) VALUES (?, ?, ?, ?)`,
+                [newContact.phoneNumber, newContact.email, newContact.linkPrecedence, new Date()]
             );
             output.primaryContactId = insertResult.insertId;
         }
