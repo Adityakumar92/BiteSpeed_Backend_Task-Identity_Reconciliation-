@@ -7,6 +7,14 @@ It provides a single API endpoint to identify a user based on their `email` and/
 
 ---
 
+## 🚀 Live API Endpoint
+
+The API is **hosted on Render** and can be accessed at:
+
+🔗 **Endpoint**: [https://bitespeed-backend-task-identity-e4hd.onrender.com/identify](https://bitespeed-backend-task-identity-e4hd.onrender.com/identify)
+
+---
+
 ## 🏗️ Tech Stack
 
 - **Node.js**
@@ -22,7 +30,7 @@ It provides a single API endpoint to identify a user based on their `email` and/
 2. Select **GET** method.
 3. Paste the hosted API URL:  
    ```
-   https://bitespeed-backend-task-identity-e4hd.onrender.com/identify
+   [https://bitespeed-backend-task-identity-e4hd.onrender.com/identify](https://bitespeed-backend-task-identity-e4hd.onrender.com/identify)
    ```
 4. Go to the **Body** section, select **raw**, and choose **JSON** format.
 5. Enter the following JSON request body:
