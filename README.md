@@ -15,3 +15,41 @@ It provides a single API endpoint to identify a user based on their `email` and/
 - **Postman (for API testing)**
 
 ---
+
+## 📌 How to Test the API in Postman
+
+1. Open **Postman**.
+2. Select **GET** method.
+3. Paste the hosted API URL:  
+   ```
+   https://bitespeed-backend-task-identity-e4hd.onrender.com/identify
+   ```
+4. Go to the **Body** section, select **raw**, and choose **JSON** format.
+5. Enter the following JSON request body:
+   ```json
+   {
+       "email": "mcfly@hillvalley.edu",
+       "phoneNumber": "123456"
+   }
+   ```
+6. Click **Send**.
+7. You will get the following response:
+   ```json
+   {
+       "contact": {
+           "primaryContactId": 1,
+           "emails": [
+               "lorraine@hillvalley.edu",
+               "mcfly@hillvalley.edu"
+           ],
+           "phoneNumbers": [
+               "123456"
+           ],
+           "secondaryContactIds": [
+               23
+           ]
+       }
+   }
+   ```
+
+---
